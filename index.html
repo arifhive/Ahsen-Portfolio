@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahsen Rauf | Portfolio</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+html {scroll-behavior: smooth;}
+body {background:#e0e5ec; color:#333; line-height:1.6; overflow-x:hidden;}
+h1,h2,h3{color:#2b5b84;}
+section{padding:80px 10%; position:relative; opacity:0; transform:translateY(30px); transition:all 0.8s ease;}
+section.visible{opacity:1; transform:translateY(0);}
+.container{max-width:1200px; margin:auto;}
+.neo{background:#e0e5ec; box-shadow:7px 7px 15px #a3b1c6, -7px -7px 15px #ffffff; border-radius:20px; transition:all 0.4s ease;}
+.neo:hover{transform:translateY(-5px); box-shadow:5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;}
+
+/* Header */
+header{display:flex; justify-content:space-between; align-items:center; padding:20px 10%; position:fixed; top:0; width:100%; z-index:100; background:#e0e5ec; box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.hamburger{display:none; flex-direction:column; justify-content:space-around; width:30px; height:25px; cursor:pointer; transition:0.4s; z-index:101;}
+.hamburger div{width:30px; height:3px; background:#333; border-radius:2px; transition:0.4s;}
+.hamburger.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active div:nth-child(2){opacity:0;}
+.hamburger.active div:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+nav ul{display:flex; list-style:none;}
+nav ul li{margin-left:25px;}
+nav ul li a{text-decoration:none; color:#333; font-weight:500; transition:0.3s;}
+nav ul li a:hover{color:#2b5b84;}
+
+/* Hero Section */
+.hero{display:flex; align-items:center; justify-content:space-between; min-height:100vh; gap:30px; flex-wrap:wrap; position:relative; overflow:hidden; padding-top:120px;}
+.hero-img{width:300px; height:300px; border-radius:50%; object-fit:cover; box-shadow:10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff; transition: transform 0.4s ease;}
+.hero-img:hover{transform:scale(1.05);}
+.hero-text h1{font-size:2rem; margin-bottom:20px; min-height:50px;}
+#typewriter::after{content:'|'; display:inline-block; margin-left:2px; animation:blink 0.7s infinite; color:#2b5b84; font-weight:bold;}
+@keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
+.hero-text p{max-width:500px; margin-bottom:20px; color:#555;}
+.btn{background:#e0e5ec; border:none; padding:12px 25px; border-radius:30px; font-size:1rem; cursor:pointer; color:#2b5b84; box-shadow:5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff; transition:0.3s;}
+.btn:hover{box-shadow:inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; transform:scale(1.05);}
+
+/* About */
+.about p{max-width:800px; margin-top:20px;}
+
+/* Skills */
+.skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-top:40px;}
+.skill-card{padding:25px; border-radius:20px; box-shadow:7px 7px 15px #a3b1c6, -7px -7px 15px #ffffff; transition:all 0.4s ease;}
+.skill-card:hover{transform:translateY(-5px); box-shadow:5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;}
+.skill-card h3{margin-bottom:10px;}
+.skill-card ul{list-style:disc; padding-left:20px;}
+.skill-card li{margin-bottom:5px; font-size:0.95rem; color:#555;}
+
+/* Experience */
+.experience-card{margin-bottom:25px; padding:25px;}
+
+/* Projects */
+.projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; margin-top:30px;}
+.project-card{opacity:0; transform:translateY(30px); transition: all 0.8s ease;}
+.project-card.visible{opacity:1; transform:translateY(0);}
+.project-card img{width:100%; border-radius:15px; transition:transform 0.4s ease, box-shadow 0.3s;}
+.project-card:hover img{transform:scale(1.05); box-shadow:10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff;}
+.project-detail{text-align:center; margin-top:10px; font-size:0.95rem; color:#555;}
+
+/* Contact */
+.contact{text-align:center;}
+.contact a{display:inline-block; margin:10px; color:#2b5b84; font-weight:500; text-decoration:none; transition: transform 0.3s;}
+.contact a:hover{transform:translateY(-3px);}
+
+footer{text-align:center; padding:20px; font-size:0.9rem; color:#555;}
+
+/* Mobile adjustments for hero & header & grids */
+@media screen and (max-width:768px){
+  header{padding:15px 5%;}
+  nav ul{flex-direction:column; position:fixed; top:70px; right:-100%; background:#e0e5ec; width:70%; max-width:250px; height:calc(100vh - 70px); padding-top:30px; gap:20px; transition:0.4s; box-shadow:-2px 0 15px rgba(0,0,0,0.1);}
+  nav ul.show{right:0;}
+  .hamburger{display:flex;}
+  header h1{font-size:1.1rem;}
+
+  .hero{flex-direction:column-reverse; text-align:center; padding-top:100px;}
+  .hero-img{width:200px; height:200px; margin-bottom:20px;}
+  .hero-text h1{font-size:1.5rem;}
+  .hero-text p{max-width:100%; font-size:0.95rem;}
+  
+  .skills-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;}
+  .project-card img{height:auto;}
+  .project-detail{font-size:0.9rem;}
+  .experience-card{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ahsen Rauf</h1>
+  <div class="hamburger" onclick="toggleMenu(this)">
+    <div></div><div></div><div></div>
+  </div>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero container visible">
+  <img src="profile.png" alt="Ahsen Rauf Profile" class="hero-img">
+  <div class="hero-text">
+    <h1 id="typewriter"></h1>
+    <p>Architectural Technician & BIM Specialist with expertise in Revit, AutoCAD, and BIM coordination. Transforming ideas into structured innovation.</p>
+    <button class="btn">Download CV</button>
+  </div>
+</section>
+
+<section id="about" class="about container neo">
+  <h2>About Me</h2>
+  <p>As an experienced Architectural Technician, I combine creative design thinking with technical expertise in Revit, AutoCAD, and BIM to deliver functional, sustainable, and aesthetically appealing structures. My focus lies in precision, collaboration, and innovation across every stage of a project.</p>
+</section>
+
+<section id="skills" class="skills container">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card neo">
+      <h3>Technical Skills</h3>
+      <ul>
+        <li>Revit (Dynamo), BIM, AutoCAD Arch/Civil/MEP</li>
+        <li>Photoshop, SketchUp, Navisworks, Vault</li>
+        <li>Architectural Detailing, Design & Space Planning</li>
+        <li>Modeling & Visualization, RIBA Plan of Work, UK Building Regs</li>
+        <li>MEP Services, Surveying & Temporary Works, Blueprint Drafting</li>
+        <li>Commercial/Residential/Educational/Healthcare Design</li>
+        <li>Interior & Product Design, Sustainable Design</li>
+      </ul>
+    </div>
+    <div class="skill-card neo">
+      <h3>Professional Skills</h3>
+      <ul>
+        <li>Adaptability, Creative Thinking, Attention to Detail</li>
+        <li>Critical Thinking, Planning & Problem Solving, Reliability</li>
+        <li>Communication, Conceptual Thinking, Team Player</li>
+        <li>Decision Making, Time Management, Organisation</li>
+        <li>Project Management, Positive Attitude & Confidence</li>
+        <li>Client Focus, Collaboration, Delegation</li>
+        <li>Evidence Collection, Investigating & Modelling</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="experience container">
+  <h2>Experience</h2>
+  <div class="experience-card neo">
+    <h3>Tilbury Douglas – BIM Technician (2022–2023)</h3>
+    <p>Developed advanced Revit models and BIM data coordination for VR configurator projects, enhancing visualization and contributing to the 2023 Innovation Award win.</p>
+  </div>
+  <div class="experience-card neo">
+    <h3>Mabey – Engineering Technician (2022)</h3>
+    <p>Produced precise BIM Level 2 temporary works models using Revit and Dynamo, improving design clarity and reducing approval time.</p>
+  </div>
+  <div class="experience-card neo">
+    <h3>Troax – CAD Technician (2021)</h3>
+    <p>Created AutoCAD layouts for industrial wall systems, improving project turnaround and supporting manufacturing accuracy.</p>
+  </div>
+  <div class="experience-card neo">
+    <h3>ENGIE – CAD Technician (2017)</h3>
+    <p>Developed architectural drawings and layouts supporting the Net Zero Emission initiative for public-sector building upgrades.</p>
+  </div>
+  <div class="experience-card neo">
+    <h3>Freelance Projects (2018–2020)</h3>
+    <p>Designed residential layouts and 3D models for private clients, focusing on functionality, visualization, and space optimization.</p>
+  </div>
+</section>
+
+<section id="projects" class="projects container">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card neo"><img src="Project (1).jpg"><div class="project-detail">3D Revit model for a UK-based school, optimizing daylight and energy flow.</div></div>
+    <div class="project-card neo"><img src="Project (2).jpg"><div class="project-detail">BIM coordination for hospital infrastructure, ensuring efficient space planning.</div></div>
+    <div class="project-card neo"><img src="Project (3).jpg"><div class="project-detail">Layouts and visualizations for multi-family housing units.</div></div>
+    <div class="project-card neo"><img src="Project (4).jpg"><div class="project-detail">Conceptualized modern retail and office building layouts with façade detailing.</div></div>
+    <div class="project-card neo"><img src="Project (5).jpg"><div class="project-detail">Designed open-space pavilion structure integrating environmental shading.</div></div>
+    <div class="project-card neo"><img src="Project (6).jpg"><div class="project-detail">Rendered structural visualization for pedestrian bridge pathways.</div></div>
+    <div class="project-card neo"><img src="Project (7).jpg"><div class="project-detail">Created BIM model emphasizing sustainability and vertical circulation design.</div></div>
+    <div class="project-card neo"><img src="Project (8).jpg"><div class="project-detail">3D visualization and model updates for heritage museum redevelopment.</div></div>
+    <div class="project-card neo"><img src="Project (9).jpg"><div class="project-detail">Assisted in technical layouts for laboratory facility adhering to UK standards.</div></div>
+    <div class="project-card neo"><img src="Project (10).jpg"><div class="project-detail">Detailed 3D renders highlighting modern interiors and structure balance.</div></div>
+    <div class="project-card neo"><img src="Project (11).jpg"><div class="project-detail">Designed interactive layout emphasizing open spaces and accessibility.</div></div>
+    <div class="project-card neo"><img src="Project (12).jpg"><div class="project-detail">Prepared accurate AutoCAD plans for MEP coordination and logistics optimization.</div></div>
+  </div>
+</section>
+
+<section id="contact" class="contact container neo">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out for collaborations, projects, or freelance work.</p>
+  <p>Email: <a href="mailto:ahs3n@hotmail.co.uk">ahs3n@hotmail.co.uk</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/ahsen-rauf-7b372b94/">linkedin.com/in/AhsenRauf</a></p>
+  <p>Phone: <a href="tel:+441234567890">+44 123 456 7890</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Ahsen Rauf | Portfolio Design by Genie Web Solutions</p>
+</footer>
+
+<script>
+function toggleMenu(x){
+  x.classList.toggle("active");
+  document.getElementById("nav-list").classList.toggle("show");
+}
+
+// Typewriter Effect
+const phrases=["Architectural Technician","BIM Specialist","Revit & AutoCAD Expert","Shaping ideas into innovation"];
+let currentPhraseIndex=0, currentText="", isDeleting=false, typeSpeed=100, deleteSpeed=50, delayBetweenPhrases=1500;
+function typeWriter(){
+  const element=document.getElementById("typewriter");
+  const fullText=phrases[currentPhraseIndex];
+  if(!isDeleting){
+    currentText=fullText.substring(0,currentText.length+1);
+    element.textContent=currentText;
+    if(currentText===fullText){isDeleting=true; setTimeout(typeWriter,delayBetweenPhrases); return;}
+  }else{
+    currentText=fullText.substring(0,currentText.length-1);
+    element.textContent=currentText;
+    if(currentText===""){isDeleting=false; currentPhraseIndex=(currentPhraseIndex+1)%phrases.length;}
+  }
+  setTimeout(typeWriter,isDeleting?deleteSpeed:typeSpeed);
+}
+typeWriter();
+
+// Intersection Observer for animations
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');}
+  });
+},{threshold:0.2});
+document.querySelectorAll('section, .project-card').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
